@@ -1,0 +1,25 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col" class="text-center">Descrição</th>
+      <th scope="col" class="text-center">Valor</th>
+      <th scope="col" class="text-center"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @despesas.each do |despesa| %>
+      <tr>
+        <%# <th scope="row">1</th> %>
+        <td class="align-middle text-center"><%= despesa.destricao %></td>
+        <td class="align-middle text-center"><%= despesa.valor %></td>
+        <td>
+          <%= link_to 'Mostrar', despesa %>
+          <%= link_to 'Editar', edit_despesa_path(despesa)%>
+          <%= link_to 'Excluir', despesa, method: :delete, data: { turbo_method: :delete } %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to 'Nova Despesa'%>
